@@ -4,10 +4,20 @@ import list from './contacts.json'
 
 function App() {
   const first5 = list.slice(0, 6)
+  const rest = list.slice(7)
   const [contacts, setContacts] = useState(first5)
+
+  const handleClick = () => {
+    let randomContact = rest[Math.floor(Math.random() * rest.length)]
+    setContacts((contacts) => [randomContact, ...contacts])
+  }
+
   return (
     <div className='contacts-page'>
       <h1>IronContacts</h1>
+      <div className="button-container">
+        <button onClick={handleClick}>Add Random Contact</button>
+      </div>
       <div className='table'>
         <table>
           <thead>

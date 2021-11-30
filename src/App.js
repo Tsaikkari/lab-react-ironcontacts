@@ -4,7 +4,7 @@ import list from './contacts.json'
 
 function App() {
   const first5 = list.slice(0, 5)
-  const rest = list.slice(6)
+  const rest = list.slice(5)
   const [contacts, setContacts] = useState(first5)
 
   const handleAddRandomContact = () => {

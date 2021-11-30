@@ -12,11 +12,43 @@ function App() {
     setContacts((contacts) => [randomContact, ...contacts])
   }
 
+  const sortContactsByName = () => {
+    const sortList = [...contacts];
+    let name1 = ''
+    let name2 = ''
+
+    sortList.sort((a, b) => {
+      name1 = a.name
+      name2 = b.name
+
+      if (name1 < name2) {
+        return -1
+      } else {
+        return 1
+      } 
+
+      if (name1 > name2) {
+          return 1
+      } else {
+        return -1
+      }
+      return 0
+    })
+
+    setContacts(sortList)
+  }
+
+  const sortContactsByPopularity = () => {
+
+  }
+
   return (
     <div className='contacts-page'>
       <h1>IronContacts</h1>
       <div className="button-container">
         <button onClick={handleClick}>Add Random Contact</button>
+        <button onClick={sortContactsByName}>Sort by name</button>
+        <button onClick={sortContactsByPopularity}>Sort by popularity</button>
       </div>
       <div className='table'>
         <table>

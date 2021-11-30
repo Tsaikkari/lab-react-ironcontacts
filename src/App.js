@@ -3,8 +3,8 @@ import './App.css'
 import list from './contacts.json'
 
 function App() {
-  const first5 = list.slice(0, 6)
-  const rest = list.slice(7)
+  const first5 = list.slice(0, 5)
+  const rest = list.slice(6)
   const [contacts, setContacts] = useState(first5)
 
   const handleAddRandomContact = () => {
@@ -26,13 +26,6 @@ function App() {
       } else {
         return 1
       } 
-
-      if (name1 > name2) {
-        return 1
-      } else {
-        return -1
-      }
-      return 0
     })
 
     setContacts(sortList)
@@ -52,13 +45,6 @@ function App() {
       } else {
         return 1
       } 
-
-      if (popularity1 < popularity2) {
-        return 1
-      } else {
-        return -1
-      }
-      return 0
     })
 
     setContacts(sortList)

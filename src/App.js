@@ -28,7 +28,7 @@ function App() {
       } 
 
       if (name1 > name2) {
-          return 1
+        return 1
       } else {
         return -1
       }
@@ -39,7 +39,29 @@ function App() {
   }
 
   const sortContactsByPopularity = () => {
+    const sortList = [...contacts];
+    let popularity1 = 0
+    let popularity2 = 0
 
+    sortList.sort((a, b) => {
+      popularity1 = a.popularity
+      popularity2 = b.popularity
+
+      if (popularity1 > popularity2) {
+        return -1
+      } else {
+        return 1
+      } 
+
+      if (popularity1 < popularity2) {
+        return 1
+      } else {
+        return -1
+      }
+      return 0
+    })
+
+    setContacts(sortList)
   }
 
   return (

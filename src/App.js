@@ -7,7 +7,7 @@ function App() {
   const rest = list.slice(7)
   const [contacts, setContacts] = useState(first5)
 
-  const handleClick = () => {
+  const handleAddRandomContact = () => {
     let randomContact = rest[Math.floor(Math.random() * rest.length)]
     setContacts((contacts) => [randomContact, ...contacts])
   }
@@ -64,11 +64,15 @@ function App() {
     setContacts(sortList)
   }
 
+  const deleteContactHandler = (id) => {
+    setContacts(contacts.filter(c => c.id !== id))
+  }
+
   return (
     <div className='contacts-page'>
       <h1>IronContacts</h1>
       <div className="button-container">
-        <button onClick={handleClick}>Add Random Contact</button>
+        <button onClick={handleAddRandomContact}>Add Random Contact</button>
         <button onClick={sortContactsByName}>Sort by name</button>
         <button onClick={sortContactsByPopularity}>Sort by popularity</button>
       </div>
@@ -94,6 +98,7 @@ function App() {
                   <td>{popularity.toFixed(2)}</td>
                   {wonOscar ? <td>🏆</td> : <td></td>}
                   {wonEmmy ? <td>🏆</td> : <td></td>}
+                  <td><button onClick={() => deleteContactHandler(id)}>Delete</button></td>
                 </tr>
               )
             )}

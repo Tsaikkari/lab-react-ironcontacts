@@ -15,18 +15,24 @@ function App() {
               <th>Picture</th>
               <th>Name</th>
               <th>Popularity</th>
+              <th>Won an Oscar</th>
+              <th>Won an Emmy</th>
             </tr>
           </thead>
           <tbody>
-            {contacts.map(({ pictureUrl, name, popularity, id }) => (
-              <tr key={id}>
-                <td>
-                  <img src={pictureUrl} alt={name} />
-                </td>
-                <td>{name}</td>
-                <td>{popularity.toFixed(2)}</td>
-              </tr>
-            ))}
+            {contacts.map(
+              ({ pictureUrl, name, popularity, id, wonOscar, wonEmmy }) => (
+                <tr key={id}>
+                  <td>
+                    <img src={pictureUrl} alt={name} />
+                  </td>
+                  <td>{name}</td>
+                  <td>{popularity.toFixed(2)}</td>
+                  {wonOscar ? <td>🏆</td> : <td></td>}
+                  {wonEmmy ? <td>🏆</td> : <td></td>}
+                </tr>
+              )
+            )}
           </tbody>
         </table>
       </div>

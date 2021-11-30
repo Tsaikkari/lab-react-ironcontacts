@@ -39,3 +39,7 @@ button {
   display: flex;
   justify-content: center;
 }
+
+.delete-btn {
+  font-size: 1.5rem;
+}

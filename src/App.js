@@ -85,6 +85,7 @@ function App() {
               <th>Popularity</th>
               <th>Won an Oscar</th>
               <th>Won an Emmy</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -98,7 +99,7 @@ function App() {
                   <td>{popularity.toFixed(2)}</td>
                   {wonOscar ? <td>🏆</td> : <td></td>}
                   {wonEmmy ? <td>🏆</td> : <td></td>}
-                  <td><button onClick={() => deleteContactHandler(id)}>Delete</button></td>
+                  <td><button className="delete-btn" onClick={() => deleteContactHandler(id)}>Delete</button></td>
                 </tr>
               )
             )}
